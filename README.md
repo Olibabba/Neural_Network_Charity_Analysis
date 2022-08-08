@@ -92,8 +92,6 @@ These changes did not give me better results
 
 In a last ditch attempt I added the NAME column back in and choose to bin everything with less than 50 occurnaces into an "other" group. This brought the number of unique variables down from 19,568 to 52. This was far more than the recommended maximum of 10 bins, but Google was so kinf to le tme use their compute power, so I one-hot-encoded all 52 values and built the same model as my first optimization. 
 
-![Try 4 Columns]()
-
 To my surprise, this successfully pushed the accuracy above my goal
 
 ![Try 4 Model](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try4.png)
