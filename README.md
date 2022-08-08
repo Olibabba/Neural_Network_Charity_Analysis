@@ -55,7 +55,10 @@ With the data successfully preprocessed, I proceeded with the creation of a neur
 
 I selected this configuration as a basic starting point for a lightweigh model and it came close to my goal reaching 72.5% accuracy.
 
-### Optimizing the MOdel
+![]()
+![]()
+
+### Optimizing the Model
 
 Since my initial model did not reach my goal I attempted several options to optimize the model for better accuracy.
 
@@ -63,38 +66,40 @@ First I added neurons to the hidden layers. With a modest boost I hoped for bett
 - The first hidden layer with 10 neurons
 - The second hidden layer with 8 neurons
 
-![]()
-
 These changes gave me very similar results as my initial model
 
-![]()
+![Try 1 Model](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try1.png)
+![Try 1 Results](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try1_results.png)
 
 Next I added a hidden layer. Keeping the additional neurons from attempt one:
 - The first hidden layer with 10 neurons
 - The second hidden layer with 8 neurons
 - The third hidden layer with 5 neurons
 
-![]()
-
 These changes did not give me better results
 
-![]()
+![Try 2 Model](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try2.png)
+![Try 2 Results](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try2_results.png)
 
 For my third attempt I processed the data again, but this time I removed two more columns. These were binary columns which I suspected were not adding to the classification. Since the third hidden layer did not offer any improvements I reverted to only two hidden layers.
 
-![]()
 
 These changes did not give me better results
 
+![Try 3 Columns](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try3_columns.png)
+![Try 3 Model](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try3.png)
+![Try 3 Results](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try3_results.png)
+
 In a last ditch attempt I added the NAME column back in and choose to bin everything with less than 50 occurnaces into an "other" group. This brought the number of unique variables down from 19,568 to 52. This was far more than the recommended maximum of 10 bins, but Google was so kinf to le tme use their compute power, so I one-hot-encoded all 52 values and built the same model as my first optimization. 
 
-![]()
+![Try 4 Columns]()
 
 To my surprise, this successfully pushed the accuracy above my goal
 
-![]()
-![]()
-![]()
+![Try 4 Model](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try4.png)
+![Try 4 Results](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try4_reults.png)
+![Try 4 Loss Plot](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try4_lossplot.png)
+![Try 4 Accuracy Plot](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/try4_accuracyplot.png)
 
 I celebrated by saving the model to a HDF5 file in order to share it with you.
 
