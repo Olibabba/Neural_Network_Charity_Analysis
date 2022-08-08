@@ -17,6 +17,7 @@ In order to prepare the dataset for deep learning I began by inspecting the data
 - 34299 rows
 - 4 integer columns 
 - 8 string columns
+- IS_SUCCESSFUL column which will be my target
 
 In looking at a sample of the table and calculating the number of unique values in each column, it looked like the EIN and NAME columns would be extra noise and have little value for our model. Though the NAME column did have repeated values that might be worth binning together, I dropped both of these columns to start.
 
@@ -41,5 +42,60 @@ After this I split the preprocessed data into features and target arrays, then f
 And finally I scaled the data in order to standardize the variables.
 
 ### Compiling, Training, and Evaluating the Model
+
+With the data successfully preprocessed, I proceeded with the creation of a neural network with the following charateristics:
+
+- Using TensorFlow Keras I initialized a Sequential Model
+- Two hidden Layers with a ReLu activation function
+- The first hidden layer with 8 neurons
+- The second hidden layer with 5 neurons
+- An output layer with a Sigmoid activation function
+- A callback that saves the model's weights every 5 epochs
+- 100 epochs
+
+I selected this configuration as a basic starting point for a lightweigh model and it came close to my goal reaching 72.5% accuracy.
+
+### Optimizing the MOdel
+
+Since my initial model did not reach my goal I attempted several options to optimize the model for better accuracy.
+
+First I added neurons to the hidden layers. With a modest boost I hoped for better reults
+- The first hidden layer with 10 neurons
+- The second hidden layer with 8 neurons
+
+![]()
+
+These changes gave me very similar results as my initial model
+
+![]()
+
+Next I added a hidden layer. Keeping the additional neurons from attempt one:
+- The first hidden layer with 10 neurons
+- The second hidden layer with 8 neurons
+- The third hidden layer with 5 neurons
+
+![]()
+
+These changes did not give me better results
+
+![]()
+
+For my third attempt I processed the data again, but this time I removed two more columns. These were binary columns which I suspected were not adding to the classification. Since the third hidden layer did not offer any improvements I reverted to only two hidden layers.
+
+![]()
+
+These changes did not give me better results
+
+In a last ditch attempt I added the NAME column back in and choose to bin everything with less than 50 occurnaces into an "other" group. This brought the number of unique variables down from 19,568 to 52. This was far more than the recommended maximum of 10 bins, but Google was so kinf to le tme use their compute power, so I one-hot-encoded all 52 values and built the same model as my first optimization. 
+
+![]()
+
+To my surprise, this successfully pushed the accuracy above my goal
+
+![]()
+![]()
+![]()
+
+I celebrated by saving the model to a HDF5 file in order to share it with you.
 
 ## Summary
