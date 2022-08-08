@@ -55,8 +55,8 @@ With the data successfully preprocessed, I proceeded with the creation of a neur
 
 I selected this configuration as a basic starting point for a lightweigh model and it came close to my goal reaching 72.5% accuracy.
 
-![]()
-![]()
+![Basic Model](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/basic_model.png)
+![Basic Results](https://github.com/Olibabba/Neural_Network_Charity_Analysis/blob/main/resources/basic_results.png)
 
 ### Optimizing the Model
 
@@ -104,3 +104,7 @@ To my surprise, this successfully pushed the accuracy above my goal
 I celebrated by saving the model to a HDF5 file in order to share it with you.
 
 ## Summary
+
+In summary, after some work to properly clean the data and optimize the model I was able to reach the desired accuracy. With a final accuracy of 76%, the neural network may be more effort than than the reults warrant.
+
+Indeed a random forest, which runs far more quickly, gave an accuracy of 74.9% accuracy, which in my opinion, is just as good.
